@@ -1,0 +1,29 @@
+        ListNode t = head;
+
+        for(int i=0; i<k-1; i++)
+        {
+            t = t.next;
+        }
+        ListNode st = t.next;
+        t.next = null;
+
+        ListNode rst= st;
+
+        while(rst.next!=null)
+        {
+            rst = rst.next;
+        }
+        rst.next = head ;
+        ListNode f = st ;
+         ListNode p =null;
+
+         while(f!=null)
+         {
+             ListNode n = f.next ;
+
+             f.next = p;
+             p = f;
+             f = n;
+        }
+
+        return p;
