@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
-
+public class lastidx {
     public static void main(String[] args) throws Exception {
         // write your code here
         Scanner scn = new Scanner(System.in);
@@ -18,17 +17,23 @@ public class Main {
     }
 
     public static int lastIndex(int[] arr, int idx, int x){
-        if(idx == arr.length){
-            return -1;
-        }
+        if(idx == arr.length)
+        return -1;
 
-       
-        if(arr[idx]==x){
-          int  r = idx;
-        }
-         int rr =  lastIndex(arr,idx+1,x);
+       int t = lastIndex(arr, idx+1, x);
 
-        return r;
+       if(arr[idx]!=x)
+       {
+           return t;
+       }
+       else if(t >= 0)
+       {
+           return t;
+       }
+       else{
+           return idx;
+       }
+
     }
 
 }
