@@ -10,40 +10,45 @@ class unfold {
         }
     }
 
-    public static void unfold(ListNode head) {
-
-        ListNode t = head;
-        ListNode t2 = head.next;
-        ListNode d1 = new ListNode(-1);
-        ListNode d2 = new ListNode(-1);
-        ListNode l1 = t ;
-        ListNode l2 = t.next;
-        ListNode f = t.next.next;
-
-        while(l1!=null || l2!=null)
-        {
-            l1.next = f;
-            l2.next = f.next;
-            f = f.next.next;
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-
+    public static ListNode reverse(ListNode head)
+    {
+        ListNode c = head;
         ListNode p = null;
 
-        while(t2!=null)
+        while(c!=null)
         {
-            ListNode n = t2.next;
+            ListNode f = c.next;
 
-            t2.next = p;
-            p = t2;
-            t2 = n;
+            c.next = p;
+            p = c ;
+            c = f;
+
+        }
+        return p;
+    }
+
+    public static void unfold(ListNode head) {
+
+        ListNode l1 = head;
+        ListNode p1 = l1;
+        ListNode l2 = head.next;
+        ListNode p2 = l2;
+
+        while(p2!=null && p2.next!=null)
+        {
+            ListNode f = p2.next ;
+
+            p1.next = f;
+            p2.next = f.next;
+            p1= p1.next;
+            p2 = p2.next;
         }
 
-        l1.next = p;
+        l2 = reverse(l2);
 
-       // return t ;
-        
+        p1.next = l2;
+       // return head;
+
     }
 
     static void printList(ListNode node) {
