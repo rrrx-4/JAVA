@@ -4,12 +4,13 @@ public class getmaze {
 
     public static void main(String[] args) throws Exception {
 
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int m = scn.nextInt();
-        // int[][] a = new int[n][m];
-        ArrayList<String> ans = getMazePaths(1, 1, n, m);
-        System.out.println(ans);
+        try (Scanner scn = new Scanner(System.in)) {
+            int n = scn.nextInt();
+            int m = scn.nextInt();
+            // int[][] a = new int[n][m];
+            ArrayList<String> ans = getMazePaths(1, 1, n, m);
+            System.out.println(ans);
+        }
     }
 
     // sr - source row
