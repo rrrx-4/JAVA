@@ -16,8 +16,11 @@ public class psubseq {
         }
 
         char ch = str.charAt(0);
+
         String ss = str.substring(1);
+
         printSS(ss, ans + ch);
+
         printSS(ss, ans);
 
     }
