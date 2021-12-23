@@ -19,11 +19,13 @@ public class pkpc {
         }
 
         char c = str.charAt(0);
+
         String sb = str.substring(1);
 
         String codes = ch[c - '0'];
 
         for (int i = 0; i < codes.length(); i++) {
+
             char t = codes.charAt(i);
             printKPC(sb, asf + t);
         }
