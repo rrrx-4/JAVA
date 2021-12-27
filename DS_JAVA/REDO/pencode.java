@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import javax.swing.text.html.HTMLDocument.RunElement;
+
 public class pencode {
 
     public static void main(String[] args) throws Exception {
@@ -19,6 +21,8 @@ public class pencode {
         }
 
         char ch = str.charAt(0);
+        if (ch == '0')
+            return;
         int t1 = ch - '0';
         char ach = (char) ('a' + t1 - 1);
 
