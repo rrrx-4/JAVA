@@ -31,13 +31,13 @@ public class floodfill {
 
         maze[sr][sc] = 1;
 
-        floodfill(maze, sr - 1, sc, asf + "t");
+        floodfill(maze, sr - 1, sc, asf + "t"); // top
 
-        floodfill(maze, sr, sc + 1, asf + "r");
+        floodfill(maze, sr, sc + 1, asf + "r"); // right
 
-        floodfill(maze, sr + 1, sc, asf + "d");
+        floodfill(maze, sr + 1, sc, asf + "d"); // down
 
-        floodfill(maze, sr, sc - 1, asf + "l");
+        floodfill(maze, sr, sc - 1, asf + "l"); // left
 
         maze[sr][sc] = 0;
     }
