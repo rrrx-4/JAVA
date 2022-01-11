@@ -102,6 +102,20 @@ public class createt {
 
     }
 
+    public static void serialize(Node node, ArrayList<Integer> list) {
+
+        list.add(node.data);
+
+        for (Node child : node.children) {
+
+            serialize(child, list);
+
+        }
+
+        list.add(-1);
+
+    }
+
     public static void main(String[] args) {
         Node root = new Node(1);
 
@@ -144,5 +158,9 @@ public class createt {
         Node root1 = construct(list);
 
         levelOrder(root1);
+        ArrayList<Integer> l1 = new ArrayList<>();
+        serialize(root1, l1);
+
+        System.out.println(l1);
     }
 }
