@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class similar {
+public class mirrors {
     private static class Node {
         int data;
         ArrayList<Node> children = new ArrayList<>();
@@ -79,22 +79,21 @@ public class similar {
         return h;
     }
 
-    public static boolean areSimilar(Node n1, Node n2) {
+    public static boolean areMirror(Node n1, Node n2) {
         // write your code here
         if (n1.children.size() != n2.children.size()) {
             return false;
         }
+
         for (int i = 0; i < n1.children.size(); i++) {
             Node c1 = n1.children.get(i);
-            Node c2 = n2.children.get(i);
+            Node c2 = n2.children.get(n2.children.size() - 1 - i);
 
-            if (areSimilar(c1, c2) == false) {
+            if (areMirror(c1, c2) == false)
                 return false;
-            }
         }
 
         return true;
-
     }
 
     public static void main(String[] args) throws Exception {
@@ -116,8 +115,8 @@ public class similar {
         }
         Node root2 = construct(arr2);
 
-        boolean similar = areSimilar(root1, root2);
-        System.out.println(similar);
+        boolean mirror = areMirror(root1, root2);
+        System.out.println(mirror);
     }
 
 }

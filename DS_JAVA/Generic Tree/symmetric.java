@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class similar {
+public class symmetric {
     private static class Node {
         int data;
         ArrayList<Node> children = new ArrayList<>();
@@ -79,45 +79,41 @@ public class similar {
         return h;
     }
 
-    public static boolean areSimilar(Node n1, Node n2) {
-        // write your code here
+    public static boolean isMirror(Node n1, Node n2) {
         if (n1.children.size() != n2.children.size()) {
             return false;
         }
+
         for (int i = 0; i < n1.children.size(); i++) {
             Node c1 = n1.children.get(i);
-            Node c2 = n2.children.get(i);
+            Node c2 = n2.children.get(n2.children.size() - 1 - i);
 
-            if (areSimilar(c1, c2) == false) {
+            if (isMirror(c1, c2) == false)
                 return false;
-            }
         }
 
         return true;
+    }
+
+    public static boolean IsSymmetric(Node node) {
+        // write your code here
+        return isMirror(node, node);
 
     }
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int n1 = Integer.parseInt(br.readLine());
-        int[] arr1 = new int[n1];
-        String[] values1 = br.readLine().split(" ");
-        for (int i = 0; i < n1; i++) {
-            arr1[i] = Integer.parseInt(values1[i]);
+        int n = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
+        String[] values = br.readLine().split(" ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(values[i]);
         }
-        Node root1 = construct(arr1);
 
-        int n2 = Integer.parseInt(br.readLine());
-        int[] arr2 = new int[n2];
-        String[] values2 = br.readLine().split(" ");
-        for (int i = 0; i < n2; i++) {
-            arr2[i] = Integer.parseInt(values2[i]);
-        }
-        Node root2 = construct(arr2);
-
-        boolean similar = areSimilar(root1, root2);
-        System.out.println(similar);
+        Node root = construct(arr);
+        boolean sym = IsSymmetric(root);
+        System.out.println(sym);
+        // display(root);
     }
 
 }
