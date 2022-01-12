@@ -1,6 +1,6 @@
-    root = s.pop();
-
-            } else if (list[i] == -1) {
-                Node t = s.pop();
-                Node p = s.peek();
-                p.children.add(t);
+int i = 1;
+        while (arr1.get(arr1.size() - i) == arr2.get(arr2.size() - i)) {
+            i++;
+        }
+        int lca = arr1.get(arr1.size() - i + 1);
+        return lca;
