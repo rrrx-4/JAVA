@@ -32,7 +32,7 @@ public class cpq {
             if (ci == 0)
                 return;
 
-            int pi = (ci - 1) / 2;
+            int pi = ci / 2 - 1;
             if (data.get(ci) < data.get(pi)) {
                 swap(pi, ci);
                 upheapify(pi);
