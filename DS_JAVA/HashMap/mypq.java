@@ -10,6 +10,18 @@ public class mypq {
             data = new ArrayList<>();
         }
 
+        public PriorityQueue(int[] a) {
+            data = new ArrayList<>();
+
+            for (int v : a) {
+                data.add(v);
+            }
+
+            for (int i = data.size() / 2 - 1; i >= 0; i--) {
+                downheapify(i);
+            }
+        }
+
         public void add(int val) {
 
             data.add(val);
@@ -81,6 +93,10 @@ public class mypq {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PriorityQueue qu = new PriorityQueue();
+
+        int[] ar = { 12, 32, 1, 32, 45, 64, 32, 55, 29, 65 };
+
+        PriorityQueue pq2 = new PriorityQueue(ar);
 
         String str = br.readLine();
         while (str.equals("quit") == false) {
